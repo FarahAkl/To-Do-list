@@ -1,7 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-*{
-    font-family: "Josefin Sans", sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+* {
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --Check-Background: linear-gradient(
+    hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
+  );
+  --Bright-Blue: hsl(220, 98%, 61%);
+}
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 120px;
+  &.dark {
+    background-image: url(images/bg-desktop-dark.jpg);
+    background-color: hsl(235, 21%, 11%);
+    .todo{
+      input{
+        background-color: hsl(235, 24%, 19%);
+      }
+    }
+  }
+  &.light {
+    background-image: url(images/bg-desktop-light.jpg);
+    background-color: #fff;
+  }
+  .todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 36rem;
+    .title {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      margin-bottom: 30px;
+      h1 {
+        font-size: 35px;
+        letter-spacing: 15px;
+      }
+    }
+    input {
+      width: 100%;
+      padding: 15px;
+      outline: none;
+      border: none;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      caret-color: var(--Bright-Blue);
+      color:hsl(233, 14%, 35%);
+      font-size: 15px;
+    }
+  }
 }
