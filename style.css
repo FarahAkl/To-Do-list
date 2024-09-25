@@ -11,6 +11,9 @@
   );
   --Bright-Blue: hsl(220, 98%, 61%);
 }
+a {
+  text-decoration: none;
+}
 body {
   width: 100vw;
   min-height: 100vh;
@@ -25,8 +28,11 @@ body {
   &.dark {
     background-image: url(images/bg-desktop-dark.jpg);
     background-color: hsl(235, 21%, 11%);
-    .todo{
-      input{
+    .todo {
+      input {
+        background-color: hsl(235, 24%, 19%);
+      }
+      footer {
         background-color: hsl(235, 24%, 19%);
       }
     }
@@ -64,8 +70,33 @@ body {
       -ms-border-radius: 3px;
       -o-border-radius: 3px;
       caret-color: var(--Bright-Blue);
-      color:hsl(233, 14%, 35%);
+      color: hsl(233, 14%, 35%);
       font-size: 15px;
+      margin-bottom: 30px;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 15px;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      color: hsl(233, 14%, 35%);
+      font-size: 15px;
+      margin-bottom: 30px;
+      div {
+        display: flex;
+        gap: 10px;
+        a {
+          color: hsl(233, 14%, 35%);
+          &:hover{
+            color: var(--Bright-Blue);
+          }
+        }
+      }
     }
   }
 }
