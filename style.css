@@ -34,12 +34,27 @@ body {
       }
       footer {
         background-color: hsl(235, 24%, 19%);
+        a {
+          &:not(:first-child):hover {
+            color: white;
+          }
+        }
       }
     }
   }
   &.light {
     background-image: url(images/bg-desktop-light.jpg);
     background-color: #fff;
+    .todo {
+      footer {
+        background-color: #fff;
+        a {
+          &:not(:first-child):hover {
+            color: hsl(235, 24%, 19%);
+          }
+        }
+      }
+    }
   }
   .todo {
     display: flex;
@@ -92,11 +107,15 @@ body {
         gap: 10px;
         a {
           color: hsl(233, 14%, 35%);
-          &:hover{
+          &:first-child {
             color: var(--Bright-Blue);
           }
         }
       }
+    }
+    footer + p{
+      font-size: 14px;
+      color:  hsl(233, 14%, 35%);
     }
   }
 }
