@@ -32,6 +32,9 @@ body {
       input {
         background-color: hsl(235, 24%, 19%);
       }
+      .task {
+        background-color: hsl(235, 24%, 19%);
+      }
       footer {
         background-color: hsl(235, 24%, 19%);
         a {
@@ -46,11 +49,16 @@ body {
     background-image: url(images/bg-desktop-light.jpg);
     background-color: #fff;
     .todo {
-      footer {
-        background-color: #fff;
-        a {
-          &:not(:first-child):hover {
-            color: hsl(235, 24%, 19%);
+      .tasks {
+        .task {
+          color: hsl(235, 21%, 11%);
+        }
+        footer {
+          background-color: #fff;
+          a {
+            &:not(:first-child):hover {
+              color: hsl(235, 24%, 19%);
+            }
           }
         }
       }
@@ -74,7 +82,7 @@ body {
         letter-spacing: 15px;
       }
     }
-    input {
+    input[type="text"] {
       width: 100%;
       padding: 15px;
       outline: none;
@@ -89,19 +97,44 @@ body {
       font-size: 15px;
       margin-bottom: 30px;
     }
-    footer {
-      display: flex;
-      justify-content: space-between;
+    .tasks {
       width: 100%;
-      padding: 15px;
       border-radius: 3px;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       -ms-border-radius: 3px;
       -o-border-radius: 3px;
+      box-shadow: 0 0 20px #00000047;
+      margin-bottom: 30px;
+      overflow: hidden;
+      .task {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 30px;
+        padding: 15px;
+        font-size: 16px;
+        color: hsl(234, 39%, 85%);
+        border-bottom: 1px solid hsl(233, 14%, 35%);
+      }
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 15px;
+      border-bottom-left-radius: 3px;
+      -webkit-border-bottom-left-radius: 3px;
+      -moz-border-bottom-left-radius: 3px;
+      -ms-border-bottom-left-radius: 3px;
+      -o-border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      -webkit-border-bottom-right-radius: 3px;
+      -moz-border-bottom-right-radius: 3px;
+      -ms-border-bottom-right-radius: 3px;
+      -o-border-bottom-right-radius: 3px;
       color: hsl(233, 14%, 35%);
       font-size: 15px;
-      margin-bottom: 30px;
       div {
         display: flex;
         gap: 10px;
@@ -113,9 +146,9 @@ body {
         }
       }
     }
-    footer + p{
+    .tasks + p {
       font-size: 14px;
-      color:  hsl(233, 14%, 35%);
+      color: hsl(233, 14%, 35%);
     }
   }
 }
