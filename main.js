@@ -18,8 +18,9 @@ modeIcon.addEventListener("click", () => {
     modeIcon.alt = "moon";
   }
 });
+//add new task
 newTask.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && newTask.value !== "") {
+    if (e.key === "Enter" && newTask.value !== "" && newTask.value.trim() !== "") {
     const task = document.createElement("div");
     task.classList.add("task");
     const checkbox = document.createElement("input");
@@ -32,6 +33,6 @@ newTask.addEventListener("keydown", (e) => {
     newTask.value = "";
     i++;
     itemsNum.innerHTML = `${i} items left`;
-    localStorage.setItem(`task ${i}`, task);
+    // localStorage.setItem(`task ${i}`, task);
   }
 });
