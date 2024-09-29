@@ -2,6 +2,10 @@ const modeIcon = document.querySelector(".todo .title img");
 const tasks = document.querySelector(".tasks");
 const itemsNum = document.querySelector(".itemsNum");
 const newTask = document.querySelector(".newTask");
+const footer = document.querySelector("footer");
+const all = document.querySelector(".all");
+const active = document.querySelector(".active");
+const completed = document.querySelector(".completed");
 let arrOfTasks = [];
 let i = 0;
 itemsNum.innerHTML = `${i} items left`;
@@ -126,4 +130,40 @@ clearCompleted.addEventListener("click", () => {
   });
   arrOfTasks = arrOfTasks.filter((t) => !t.checked);
   localStorage.setItem("tasks", JSON.stringify(arrOfTasks));
+});
+//all tasks
+
+all.addEventListener("click", () => {
+  Array.from(tasks.children).forEach((task) => {
+    task.style.display = "flex";
+  });
+  footer.style.display = "flex";
+});
+
+//completed tasks
+
+completed.addEventListener("click", () => {
+  Array.from(tasks.children).forEach((task) => {
+    const checkbox = task.querySelector("input[type='checkbox']");
+    if (checkbox && checkbox.checked) {
+      task.style.display = "flex";
+    } else {
+      task.style.display = "none";
+    }
+  });
+  footer.style.display = "flex";
+});
+
+//active tasks
+
+active.addEventListener("click", () => {
+  Array.from(tasks.children).forEach((task) => {
+    const checkbox = task.querySelector("input[type='checkbox']");
+    if (checkbox && !checkbox.checked) {
+      task.style.display = "flex";
+    } else {
+      task.style.display = "none";
+    }
+  });
+  footer.style.display = "flex";
 });
