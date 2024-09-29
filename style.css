@@ -145,7 +145,6 @@ body {
           position: relative;
           cursor: pointer;
           &:checked + p {
-            color: white;
             text-decoration: line-through;
           }
           &::before {
@@ -167,6 +166,7 @@ body {
             background-image:var(--Check-Background);
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            border: none;
           }
           &:checked::after{
             content:url(images/icon-check.svg);
