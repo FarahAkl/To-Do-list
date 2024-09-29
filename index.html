@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -21,11 +19,11 @@
         <h1>TODO</h1>
         <img src="images/icon-sun.svg" alt="sun" />
       </div>
-      <input type="text" placeholder="Create a new todo..." class="newTask"/>
+      <input type="text" placeholder="Create a new todo..." class="newTask" />
       <div class="tasks">
         <footer>
           <span class="itemsNum"></span>
-          <div>
+          <div class="status">
             <a href="#">All</a>
             <a href="#">Active</a>
             <a href="#">Completed</a>
@@ -33,10 +31,13 @@
           <span>Clear Completed</span>
         </footer>
       </div>
-
-      <p>Drag and drop to reorder list</p>
     </div>
-
+    <div class="mob-status">
+      <a href="#">All</a>
+      <a href="#">Active</a>
+      <a href="#">Completed</a>
+    </div>
+    <p class="drag">Drag and drop to reorder list</p>
     <script src="main.js"></script>
   </body>
 </html>

@@ -2,6 +2,7 @@ const modeIcon = document.querySelector(".todo .title img");
 const tasks = document.querySelector(".tasks");
 const itemsNum = document.querySelector(".itemsNum");
 const newTask = document.querySelector(".newTask");
+let arrOfTasks = [];
 let i = 0;
 itemsNum.innerHTML = `${i} items left`;
 //switch light and dark mode
@@ -20,19 +21,48 @@ modeIcon.addEventListener("click", () => {
 });
 //add new task
 newTask.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && newTask.value !== "" && newTask.value.trim() !== "") {
+  if (
+    e.key === "Enter" &&
+    newTask.value !== "" &&
+    newTask.value.trim() !== ""
+  ) {
     const task = document.createElement("div");
     task.classList.add("task");
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     task.appendChild(checkbox);
     const taskP = document.createElement("p");
-    taskP.innerHTML = newTask.value;
+    taskP.innerHTML = newTask.value.trim();
+    delIcon = document.createElement("img");
+    delIcon.src = "images/icon-cross.svg";
+    delIcon.alt = "cross";
+    delIcon.classList.add("del");
     task.appendChild(taskP);
+    task.appendChild(delIcon);
     tasks.prepend(task);
     newTask.value = "";
     i++;
     itemsNum.innerHTML = `${i} items left`;
-    // localStorage.setItem(`task ${i}`, task);
+    taskDetails = {
+      task: taskP.innerHTML,
+      checked: false,
+    };
+    arrOfTasks.push(taskDetails);
+    console.log(arrOfTasks);
+  }
+  localStorage.setItem("tasks", JSON.stringify(arrOfTasks));
+});
+
+/*delete task*/
+tasks.addEventListener("click", (e) => {
+  if (e.target.classList.contains("del")) {
+    e.target.parentElement.remove();
+    i--;
+    itemsNum.innerHTML = `${i} items left`;
+    arrOfTasks = arrOfTasks.filter(
+      (task) => task.task !== e.target.previousElementSibling.innerHTML
+      
+    );
+    localStorage.setItem("tasks", JSON.stringify(arrOfTasks));
   }
 });
