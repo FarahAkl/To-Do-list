@@ -181,7 +181,7 @@ body {
     color: hsl(233, 14%, 35%);
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body {
     padding-top: 70px;
     &.light {
