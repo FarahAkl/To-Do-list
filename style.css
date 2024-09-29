@@ -175,6 +175,9 @@ body {
             left: -4px;
           } 
         }
+        p{
+          margin-left: 20px;
+        }
         .del {
           position: absolute;
           right: 30px;
