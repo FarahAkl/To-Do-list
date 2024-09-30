@@ -6,6 +6,9 @@ const footer = document.querySelector("footer");
 const all = document.querySelector(".all");
 const active = document.querySelector(".active");
 const completed = document.querySelector(".completed");
+const mobAll = document.querySelector(".mob-all");
+const mobActive = document.querySelector(".mob-active");
+const mobCompleted = document.querySelector(".mob-completed");
 let arrOfTasks = [];
 let i = 0;
 itemsNum.innerHTML = `${i} items left`;
@@ -132,17 +135,16 @@ clearCompleted.addEventListener("click", () => {
   localStorage.setItem("tasks", JSON.stringify(arrOfTasks));
 });
 //all tasks
-
-all.addEventListener("click", () => {
+let allTasks = () => {
   Array.from(tasks.children).forEach((task) => {
     task.style.display = "flex";
   });
   footer.style.display = "flex";
-});
-
+};
+all.addEventListener("click", allTasks);
+mobAll.addEventListener("click", allTasks);
 //completed tasks
-
-completed.addEventListener("click", () => {
+let completedTasks =() => {
   Array.from(tasks.children).forEach((task) => {
     const checkbox = task.querySelector("input[type='checkbox']");
     if (checkbox && checkbox.checked) {
@@ -152,11 +154,11 @@ completed.addEventListener("click", () => {
     }
   });
   footer.style.display = "flex";
-});
-
+}
+completed.addEventListener("click", completedTasks);
+mobCompleted.addEventListener("click", completedTasks);
 //active tasks
-
-active.addEventListener("click", () => {
+let activeTasks = () => {
   Array.from(tasks.children).forEach((task) => {
     const checkbox = task.querySelector("input[type='checkbox']");
     if (checkbox && !checkbox.checked) {
@@ -166,4 +168,6 @@ active.addEventListener("click", () => {
     }
   });
   footer.style.display = "flex";
-});
+}
+active.addEventListener("click", activeTasks);
+mobActive.addEventListener("click", activeTasks);
