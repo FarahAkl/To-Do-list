@@ -5,13 +5,20 @@
   box-sizing: border-box;
 }
 :root {
-  --Check-Background: linear-gradient(to right,
-    hsl(192, 100%, 67%) , hsl(280, 87%, 65%)
+  --Check-Background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
   );
   --Bright-Blue: hsl(220, 98%, 61%);
+  --background-color: hsl(235, 24%, 19%);
+  --text-color: hsl(233, 14%, 35%);
 }
 a {
   text-decoration: none;
+}
+body.light {
+  --background-color: #fff;
 }
 body {
   font-family: "Josefin Sans", sans-serif;
@@ -25,62 +32,45 @@ body {
   align-items: center;
   flex-direction: column;
   padding-top: 120px;
+  background-color: var(--background-color);
+  .todo {
+    input {
+      background-color: var(--background-color);
+    }
+    .task {
+      background-color: var(--background-color);
+    }
+    footer {
+      background-color: var(--background-color);
+      a {
+        &:not(:first-child):hover {
+          color: var(--background-color);
+        }
+      }
+      .clear {
+        &:hover {
+          color: var(--background-color);
+        }
+      }
+    }
+    .mob-status {
+      background-color: var(--background-color);
+    }
+  }
+
   &.dark {
     background-image: url(images/bg-desktop-dark.jpg);
     background-color: hsl(235, 21%, 11%);
-    .todo {
-      input {
-        background-color: hsl(235, 24%, 19%);
-      }
-      .task {
-        background-color: hsl(235, 24%, 19%);
-      }
-      footer {
-        background-color: hsl(235, 24%, 19%);
-        a {
-          &:not(:first-child):hover {
-            color: white;
-          }
-        }
-        .clear {
-          &:hover {
-            color: white;
-          }
-        }
-      }
-    }
-    .mob-status {
-      background-color: hsl(235, 24%, 19%);
-    }
   }
   &.light {
     background-image: url(images/bg-desktop-light.jpg);
-    background-color: #fff;
     .todo {
-      .tasks {
-        .task {
-          color: hsl(235, 21%, 11%);
-          background-color: #fff;
-          border-bottom-color: hsl(233, 11%, 84%);
-        }
-        footer {
-          background-color: #fff;
-          a {
-            &:not(:first-child):hover {
-              color: hsl(235, 24%, 19%);
-            }
-          }
-          .clear {
-            &:hover {
-              color: hsl(235, 24%, 19%);
-              cursor: pointer;
-            }
-          }
-        }
+      .task {
+        color: hsl(235, 21%, 11%);
+        border-bottom-color: hsl(233, 11%, 84%);
       }
     }
     .mob-status {
-      background-color: #fff;
       color: hsl(235, 21%, 11%);
     }
   }
@@ -95,7 +85,7 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: white;
+      color: #fff;
       margin-bottom: 30px;
       h1 {
         font-size: 35px;
@@ -114,7 +104,7 @@ body {
       -ms-border-radius: 3px;
       -o-border-radius: 3px;
       caret-color: var(--Bright-Blue);
-      color: hsl(233, 14%, 35%);
+      color: var(--text-color);
       font-size: 15px;
       margin-bottom: 30px;
     }
@@ -137,7 +127,7 @@ body {
         padding: 15px;
         font-size: 16px;
         color: hsl(234, 39%, 85%);
-        border-bottom: 1px solid hsl(233, 14%, 35%);
+        border-bottom: 1px solid var(--text-color);
         input[type="checkbox"] {
           appearance: none;
           -webkit-appearance: none;
@@ -155,7 +145,7 @@ body {
             transform: translate(-50%, -50%);
             width: 20px;
             height: 20px;
-            border: 2px solid hsl(233, 14%, 35%);
+            border: 2px solid var(--text-color);
             border-radius: 50%;
             -webkit-border-radius: 50%;
             -moz-border-radius: 50%;
@@ -163,20 +153,21 @@ body {
             -o-border-radius: 50%;
           }
           &:checked::before {
-            background-image:var(--Check-Background);
+            background-image: var(--Check-Background);
             background-size: 100% 100%;
             background-repeat: no-repeat;
             border: none;
           }
-          &:checked::after{
-            content:url(images/icon-check.svg);
+          &:checked::after {
+            content: url(images/icon-check.svg);
             position: absolute;
             top: -7px;
             left: -4px;
-          } 
+          }
         }
-        p{
+        p {
           margin-left: 20px;
+          color:var(--text-color);
         }
         .del {
           position: absolute;
@@ -199,13 +190,13 @@ body {
       -moz-border-bottom-right-radius: 3px;
       -ms-border-bottom-right-radius: 3px;
       -o-border-bottom-right-radius: 3px;
-      color: hsl(233, 14%, 35%);
+      color: var(--text-color);
       font-size: 15px;
       div {
         display: flex;
         gap: 10px;
         a {
-          color: hsl(233, 14%, 35%);
+          color: var(--text-color);
           &:first-child {
             color: var(--Bright-Blue);
           }
@@ -218,7 +209,7 @@ body {
   }
   .drag {
     font-size: 14px;
-    color: hsl(233, 14%, 35%);
+    color: var(--text-color);
   }
 }
 @media (max-width: 767px) {
@@ -265,10 +256,10 @@ body {
       padding: 10px;
       border-radius: 3px;
       box-shadow: 0 0 20px #00000047;
-      color: hsl(233, 14%, 35%);
+      color: var(--text-color);
       font-size: 15px;
       a {
-        color: hsl(233, 14%, 35%);
+        color: var(--text-color);
         &:first-child {
           color: var(--Bright-Blue);
         }
